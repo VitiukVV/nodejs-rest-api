@@ -1,4 +1,10 @@
-const HttpError = (status, message) => {
+const errorMessageList = {
+  400: "Bad Request",
+  401: "Not authorized",
+  409: "Email in use",
+};
+
+const HttpError = (status, message = errorMessageList[status]) => {
   const error = new Error(message);
   error.status = status;
   return error;
