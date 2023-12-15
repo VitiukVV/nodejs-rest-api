@@ -13,7 +13,11 @@ const getAll = async (req, res) => {
       limit,
     }
   ).populate("owner", "email subscription");
-  res.json(result);
+  res.json({
+    contacts: result,
+    page: Math.ceil(result.length / limit),
+    total: result.length,
+  });
 };
 
 const getById = async (req, res) => {
