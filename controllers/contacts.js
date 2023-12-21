@@ -25,7 +25,7 @@ const getById = async (req, res) => {
   const { _id: owner } = req.user;
   const result = await Contact.findById(contactId).where("owner", owner);
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json(result);
 };
@@ -43,7 +43,7 @@ const updateById = async (req, res) => {
     new: true,
   }).where("owner", owner);
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json(result);
 };
@@ -55,7 +55,7 @@ const updateFavoriteById = async (req, res) => {
     new: true,
   }).where("owner", owner);
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json(result);
 };
@@ -68,7 +68,7 @@ const deleteById = async (req, res) => {
     owner
   );
   if (!result) {
-    throw HttpError(404, "Not found");
+    throw HttpError(404);
   }
   res.json({ message: "contact deleted" });
 };

@@ -4,6 +4,7 @@ const validateFavorite = require("./validateFavorite");
 const authenticate = require("./authenticate");
 const validateSubscription = require("./validateSubscription");
 const upload = require("./upload");
+const validateVerifyBody = require("./validateVerifyBody");
 
 module.exports = {
   validateBody,
@@ -12,4 +13,5 @@ module.exports = {
   authenticate,
   validateSubscription,
   upload,
+  validateVerifyBody,
 };
