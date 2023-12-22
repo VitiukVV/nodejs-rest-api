@@ -58,7 +58,10 @@ const loginSchema = Joi.object({
 const subscriptionSchema = Joi.object({
   subscription: Joi.string()
     .valid(...subscriptionValues)
-    .required(),
+    .required()
+    .messages({
+      "any.required": "missing field subscription",
+    }),
 });
 
 const verifyEmailSchema = Joi.object({

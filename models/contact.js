@@ -44,7 +44,9 @@ const validateData = Joi.object({
 });
 
 const updateFavorite = Joi.object({
-  favorite: Joi.boolean().required(),
+  favorite: Joi.boolean().required().messages({
+    "any.required": "missing field favorite",
+  }),
 });
 
 const schemas = {

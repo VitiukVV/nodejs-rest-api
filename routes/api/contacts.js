@@ -3,7 +3,7 @@ const ctrl = require("../../controllers/contacts");
 const {
   validateBody,
   isValidId,
-  validateFavorite,
+  validateOneStringBody,
   authenticate,
 } = require("../../middlewares");
 const { schemas } = require("../../models/contact");
@@ -28,7 +28,7 @@ router.patch(
   "/:contactId/favorite",
   authenticate,
   isValidId,
-  validateFavorite(schemas.updateFavorite),
+  validateOneStringBody(schemas.updateFavorite),
   ctrl.updateFavoriteById
 );
 
